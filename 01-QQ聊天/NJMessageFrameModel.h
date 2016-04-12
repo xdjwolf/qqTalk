@@ -17,14 +17,14 @@
  */
 @property (nonatomic ,strong) NJMessageModel *message;
 //-(void)setMessage:(NJMessageModel *)message andLastMessage:(NJMessageModel *)message;
+//readonly 只能获取，不能设置值
+@property(nonatomic,assign,readonly) CGRect timeF;
+@property(nonatomic,assign,readonly) CGRect iconF;
 
-@property(nonatomic,assign) CGRect timeF;
-@property(nonatomic,assign) CGRect iconF;
-
-@property(nonatomic,assign) CGRect textF;
+@property(nonatomic,assign,readonly) CGRect textF;
 /**
  *  cell的高度
  */
-@property(nonatomic,assign) CGFloat cellHeight;
+@property(nonatomic,assign,readonly) CGFloat cellHeight;
 
 @end

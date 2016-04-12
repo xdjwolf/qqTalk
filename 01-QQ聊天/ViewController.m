@@ -211,7 +211,19 @@
     NJMessageModel  *previousMessage = (NJMessageModel *)[[self.messages lastObject] message];
     
     NJMessageModel *message = [[NJMessageModel alloc]init];
-    message.time = @"17:13";
+   //实现把用户发送时的时间，作为发送时间
+    NSDate *date = [NSDate date];//创建时间对象
+//    NSLog(@"%@",date);
+    //可以将时间转换为字符串，也可以将时间转为字符串
+    //2014-05-13    2014/12/23 09/04/15
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    //时间格式 HH 24h  hh 12h
+//    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    formatter.dateFormat = @"HH:mm";
+     NSString *time = [formatter stringFromDate:date];
+    
+//    NSLog(@"%@",time);
+    message.time = time;
     message.text = content;
     message.type = type;
     message.hiddenTime = [message.time isEqualToString:previousMessage.time];
